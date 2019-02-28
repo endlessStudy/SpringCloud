@@ -36,6 +36,7 @@
         <module>eureka-server</module>
         <module>eureka-client-provide</module>
         <module>eureka-client-consumer</module>
+        <module>ribbon</module>
     </modules>
     <dependencyManagement>
         <dependencies>
