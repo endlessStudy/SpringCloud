@@ -29,14 +29,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>2.1.0.RELEASE</version>
         <relativePath/>
     </parent>
     <modules>
         <module>eureka-server</module>
         <module>eureka-client-provide</module>
         <module>eureka-client-consumer</module>
-        <module>ribbon</module>
+        <module>ribbon-client</module>
+        <module>feign-client</module>
+        <module>hystrix-client</module>
+        <module>zuul-client</module>
     </modules>
     <dependencyManagement>
         <dependencies>
