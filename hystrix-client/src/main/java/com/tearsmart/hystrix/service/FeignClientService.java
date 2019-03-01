@@ -1,5 +1,7 @@
 package com.tearsmart.hystrix.service;
 
+import com.tearsmart.hystrix.config.FeginConfig;
+import com.tearsmart.hystrix.config.HystrixFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author tear-smart
  * @date 2019-03-01
  */
-@FeignClient(name = "eureka-client-provide")
+@FeignClient(name = "eureka-client-provide" ,configuration = FeginConfig.class,fallback = HystrixFeign.class)
 public interface FeignClientService {
     @GetMapping("/get")
     public Object getData();

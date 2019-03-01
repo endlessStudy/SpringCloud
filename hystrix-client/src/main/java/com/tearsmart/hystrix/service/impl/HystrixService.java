@@ -26,12 +26,12 @@ public class HystrixService {
     @Autowired
     private FeignClientService service;
 
-    @HystrixCommand(fallbackMethod = "callBack")
+    // @HystrixCommand(fallbackMethod = "callBack")
     public Object getData() {
         return service.getData();
     }
 
-    public Object callBack() {
+ /*   public Object callBack() {
         return "Hystrix 熔断生效!";
-    }
+    }*/
 }
