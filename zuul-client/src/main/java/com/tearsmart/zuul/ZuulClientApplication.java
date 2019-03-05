@@ -2,8 +2,12 @@ package com.tearsmart.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.netflix.zuul.EnableZuulServer;
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * <p>
@@ -21,6 +25,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulServer;
  * @date 2019-03-01
  */
 @SpringBootApplication
+@EnableEurekaClient
 @EnableZuulProxy
 public class ZuulClientApplication {
     public static void main(String[] args) {
