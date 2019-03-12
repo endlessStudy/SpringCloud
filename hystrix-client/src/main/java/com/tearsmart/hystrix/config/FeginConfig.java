@@ -1,7 +1,10 @@
-package com.tearsmart.feign.service;
+package com.tearsmart.hystrix.config;
 
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import feign.Retryer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * <p>
@@ -18,8 +21,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author tear-smart
  * @date 2019-03-01
  */
-@FeignClient(value = "eureka-client-provide",path = "provide")
-public interface FeignClientService {
-    @GetMapping("/get")
-    public Object getData();
+@Configuration
+public class FeginConfig {
+     @Bean
+    public Retryer feignRetryer(){
+        return new Retryer.Default(100, TimeUnit.SECONDS.toMillis(1),5);
+    }
 }
