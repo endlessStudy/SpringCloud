@@ -18,9 +18,9 @@
         <common-long3.version>3.7</common-long3.version>
         <common-codec.version>1.11</common-codec.version>
         <fastjson.version>1.2.51</fastjson.version>
-        <swagger-ui.version>2.9.1</swagger-ui.version>
+        <swagger-ui.version>2.9.2</swagger-ui.version>
         <jackson-datatype-jsr310.version>2.9.7</jackson-datatype-jsr310.version>
-        <durid.version>1.1.12</durid.version>
+        <durid.version>1.1.10</durid.version>
         <spring-test.version>5.1.1.RELEASE</spring-test.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <sc.version>1.0-SNAPSHOT</sc.version>
