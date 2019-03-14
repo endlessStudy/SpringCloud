@@ -1,8 +1,13 @@
-package com.tearsmart.hystrix.service.impl;
+package com.tearsmart.eureka.Controller;
 
-import com.tearsmart.hystrix.service.FeignClientService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * <p>
@@ -17,19 +22,20 @@ import org.springframework.stereotype.Service;
  * |****************************** *_* ******************************|
  * </p>
  * @author tear-smart
- * @date 2019-03-01
+ * @date 2019-03-14
  */
-@Service
-public class HystrixService {
+
+@RestController
+@RequestMapping("provide")
+@Slf4j
+public class ProvideController {
     @Autowired
-    private FeignClientService service;
+    private DiscoveryClient discoveryClient;
 
-    // @HystrixCommand(fallbackMethod = "callBack")
+    @GetMapping("get")
     public Object getData() {
-        return service.getData();
+        List<String> services = discoveryClient.getServices();
+        log.info("services :　" + services.toString());
+        return services;
     }
-
- /*   public Object callBack() {
-        return "Hystrix 熔断生效!";
-    }*/
 }

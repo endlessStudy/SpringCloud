@@ -25,8 +25,9 @@ import org.springframework.web.client.RestTemplate;
 public class RibbonTestController {
     @Autowired
     private RestTemplate restTemplate;
+
     @RequestMapping("get")
-    public Object getData(){
+    public Object getData() {
         return restTemplate.getForObject("http://EUREKA-CLIENT-PROVIDE/get", Object.class);
     }
 

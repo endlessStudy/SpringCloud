@@ -1,9 +1,7 @@
-package com.tearsmart.feign;
+package com.tearsmart.feign.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import com.netflix.loadbalancer.RandomRule;
+import com.netflix.loadbalancer.Server;
 
 /**
  * <p>
@@ -16,16 +14,15 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * |            \/     \/             \/      \/     \/              |
  * |                                                                 |
  * |****************************** *_* ******************************|
- * ribbon 客户端的负载均衡
  * </p>
  * @author tear-smart
- * @date 2019-02-28
+ * @date 2019-03-14
  */
-@SpringBootApplication
-@EnableEurekaClient
-@EnableFeignClients
-public class FeignApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(FeignApplication.class, args);
+public class CostomRule extends RandomRule {
+    @Override
+    public Server choose(Object key) {
+        Server server = choose(getLoadBalancer(), key);
+        System.out.println("本次调用的服务信息为: " + server.toString());
+        return server;
     }
 }

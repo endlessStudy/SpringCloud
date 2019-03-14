@@ -23,8 +23,8 @@ import java.util.concurrent.TimeUnit;
  */
 @Configuration
 public class FeginConfig {
-     @Bean
-    public Retryer feignRetryer(){
-        return new Retryer.Default(100, TimeUnit.SECONDS.toMillis(1),5);
+    @Bean
+    public Retryer feignRetryer() {
+        return new Retryer.Default(100, TimeUnit.SECONDS.toMillis(1), 5);
     }
 }

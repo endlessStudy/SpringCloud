@@ -1,9 +1,8 @@
-package com.tearsmart.feign;
+package com.tearsmart.feign.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
+import com.netflix.loadbalancer.IRule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * <p>
@@ -16,16 +15,15 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * |            \/     \/             \/      \/     \/              |
  * |                                                                 |
  * |****************************** *_* ******************************|
- * ribbon 客户端的负载均衡
  * </p>
  * @author tear-smart
- * @date 2019-02-28
+ * @date 2019-03-14
  */
-@SpringBootApplication
-@EnableEurekaClient
-@EnableFeignClients
-public class FeignApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(FeignApplication.class, args);
+@Configuration
+public class FeignConfiguration {
+
+    @Bean
+    public IRule getRule() {
+        return new CostomRule();
     }
 }

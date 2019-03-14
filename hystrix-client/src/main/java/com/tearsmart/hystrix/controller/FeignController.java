@@ -1,7 +1,5 @@
 package com.tearsmart.hystrix.controller;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.tearsmart.hystrix.service.FeignClientService;
 import com.tearsmart.hystrix.service.impl.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignController {
     @Autowired
     private HystrixService service;
+
     @GetMapping("get")
-    public Object getData(){
+    public Object getData() {
         return service.getData();
     }
 }

@@ -24,8 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeignController {
     @Autowired
     private FeignClientService service;
+
     @GetMapping("get")
-    public Object getData(){
+    public Object getData() {
         return service.getData();
     }
 }

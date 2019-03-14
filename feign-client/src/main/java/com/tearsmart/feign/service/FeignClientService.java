@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author tear-smart
  * @date 2019-03-01
  */
-@FeignClient(value = "eureka-client-provide",path = "provide")
+@FeignClient(value = "eureka-client-provide", path = "provide")
 public interface FeignClientService {
     @GetMapping("/get")
-    public Object getData();
+    Object getData();
 }

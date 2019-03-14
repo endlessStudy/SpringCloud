@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author tear-smart
  * @date 2019-03-01
  */
-@FeignClient(name = "eureka-client-provide" ,configuration = FeginConfig.class,fallback = HystrixFeign.class)
+@FeignClient(name = "eureka-client-provide", configuration = FeginConfig.class, fallback = HystrixFeign.class)
 public interface FeignClientService {
     @GetMapping("/get")
     public Object getData();
