@@ -1,5 +1,6 @@
 package com.tearsmart.eureka;
 
+import org.slf4j.MDC;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
@@ -23,7 +24,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @SpringBootApplication
 @EnableEurekaServer
 public class EurekaServerApplication {
+
     public static void main(String[] args) {
+        MDC.put("userId","liuyl");
         SpringApplication.run(EurekaServerApplication.class, args);
     }
 }

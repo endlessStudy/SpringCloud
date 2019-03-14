@@ -32,8 +32,9 @@ public class EurekaClientProvideApplication {
     public static void main(String[] args) {
         SpringApplication.run(EurekaClientProvideApplication.class, args);
     }
+
     @GetMapping("get")
-    public Object getData(){
+    public Object getData() {
         return LocalDateTime.now();
     }
 }
