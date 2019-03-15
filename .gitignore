@@ -2,3 +2,5 @@
 .idea
 /src/test
 */*.iml
+/config-server/src/test/
+/*/test/
