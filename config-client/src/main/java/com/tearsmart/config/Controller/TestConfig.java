@@ -1,9 +1,8 @@
-package com.tearsmart.hystrix.controller;
+package com.tearsmart.config.Controller;
 
-import com.tearsmart.hystrix.service.impl.HystrixServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,18 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
  * |            \/     \/             \/      \/     \/              |
  * |                                                                 |
  * |****************************** *_* ******************************|
+ * 获取github上配置文件信息
+ * 当指定分支上没有该信息时,将会从默认配置中获取
+ * eg : master分支config-server-dev文件中没有时,将会从config-server读取
  * </p>
  * @author tear-smart
- * @date 2019-03-01
+ * @date 2019-03-15
  */
 @RestController
-public class FeignController {
-    @Autowired
-    private HystrixServiceImpl service;
-
-    @GetMapping("get/{time}")
-    public Object getData(@PathVariable long time) throws InterruptedException {
-        Thread.sleep(time);
-        return service.getData();
+@RequestMapping("config")
+public class TestConfig {
+    @Value("${info.name}")
+    private String name;
+    @GetMapping("getName")
+    public String getName(){
+        return this.name;
     }
 }

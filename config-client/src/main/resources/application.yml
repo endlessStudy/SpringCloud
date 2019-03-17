@@ -1,0 +1,19 @@
+server:
+  port: 7771
+# \u8BBE\u7F6E\u66B4\u9732\u6240\u6709\u7AEF\u70B9
+# management.endpoints.web.exposure.include=*
+
+# \u8BBE\u7F6E\u5355\u4E2A\u7AEF\u70B9\uFF08/shutdown\uFF09\u53EF\u7528
+#management.endpoint.shutdown.enabled=true
+
+# \u8BBE\u7F6E\u66B4\u9732\u6240\u6709\u7AEF\u70B9\uFF0C\u9664\u4E86env
+# management.endpoints.web.exposure.include=*
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoint:
+    refresh:
+      enabled: true
+# management.endpoints.web.exposure.exclude=env

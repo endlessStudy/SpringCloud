@@ -21,6 +21,7 @@ import org.springframework.context.annotation.Bean;
  * |            \/     \/             \/      \/     \/              |
  * |                                                                 |
  * |****************************** *_* ******************************|
+ * @EnableHystrix 包含了@EnableCircuitBreaker注解
  * </p>
  * @author tear-smart
  * @date 2019-03-01

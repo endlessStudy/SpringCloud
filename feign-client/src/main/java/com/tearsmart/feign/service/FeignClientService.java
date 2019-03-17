@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  * |            \/     \/             \/      \/     \/              |
  * |                                                                 |
  * |****************************** *_* ******************************|
+ * @FeignClient(value = "eureka-client-provide", path = "provide")
+ *  value: 调用的服务的名称
+ *  path: 路径统一前缀
  * </p>
  * @author tear-smart
  * @date 2019-03-01

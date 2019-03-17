@@ -1,8 +1,9 @@
-package com.tearsmart.hystrix.service.impl;
+package com.tearsmart.config;
 
-import com.tearsmart.hystrix.service.FeignClientService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * <p>
@@ -17,19 +18,13 @@ import org.springframework.stereotype.Service;
  * |****************************** *_* ******************************|
  * </p>
  * @author tear-smart
- * @date 2019-03-01
+ * @date 2019-03-15
  */
-@Service
-public class HystrixService {
-    @Autowired
-    private FeignClientService service;
-
-    // @HystrixCommand(fallbackMethod = "callBack")
-    public Object getData() {
-        return service.getData();
+@SpringBootApplication
+@EnableConfigServer
+@EnableEurekaClient
+public class ConfigServerApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(ConfigServerApplication.class, args);
     }
-
- /*   public Object callBack() {
-        return "Hystrix 熔断生效!";
-    }*/
 }

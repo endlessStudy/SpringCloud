@@ -1,7 +1,9 @@
-package com.tearsmart.hystrix.config;
+package com.tearsmart.config;
 
-import com.tearsmart.hystrix.service.FeignClientService;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
 /**
   * <p>
   *|****************************** *_* ******************************|
@@ -17,10 +19,11 @@ import org.springframework.stereotype.Component;
   * @author tear-smart
   * @date 2019/3/15
   */
-@Component
-public class HystrixFeign implements FeignClientService {
-    @Override
-    public Object getData() {
-        return "hystrix 生效!";
+@SpringBootApplication
+@EnableEurekaClient
+public class ConfigClientApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(ConfigClientApplication.class, args);
     }
+
 }

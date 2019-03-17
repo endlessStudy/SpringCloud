@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: config-client # 该名字必须和git上文件名前缀一样
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server

@@ -4,3 +4,6 @@
 */*.iml
 /config-server/src/test/
 /*/test/
+test
+/feign-client/target
+target
