@@ -1,8 +1,11 @@
 package com.tearsmart.feign.controller;
 
 import com.tearsmart.feign.service.FeignClientService;
+import com.tearsmart.feign.service.FeignClientService2;
+import com.tearsmart.feign.service.TestInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -23,10 +26,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeignController {
     @Autowired
-    private FeignClientService service;
+    TestInterface test;
 
-    @GetMapping("get")
+    @GetMapping("/get")
     public Object getData() {
-        return service.getData();
+        return test.getData();
     }
+
+    @GetMapping("/get2")
+    public Object getData2() {
+        return test.getData2();
+    }
+
 }

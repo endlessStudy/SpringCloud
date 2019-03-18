@@ -1,6 +1,8 @@
 package com.tearsmart.feign.config;
 
 import com.netflix.loadbalancer.IRule;
+import feign.auth.BasicAuthRequestInterceptor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,7 +22,12 @@ import org.springframework.context.annotation.Configuration;
  * @date 2019-03-14
  */
 @Configuration
+@ExcludeAnnoncation
+@Slf4j
 public class FeignConfiguration {
+    FeignConfiguration() {
+        log.info("11111111111111 FeignConfiguration.class");
+    }
 
     @Bean
     public IRule getRule() {

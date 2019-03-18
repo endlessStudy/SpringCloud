@@ -22,7 +22,7 @@ public class CostomRule extends RandomRule {
     @Override
     public Server choose(Object key) {
         Server server = choose(getLoadBalancer(), key);
-        System.out.println("本次调用的服务信息为: " + server.toString());
+        System.out.println("随机负载策略: " + server.toString());
         return server;
     }
 }

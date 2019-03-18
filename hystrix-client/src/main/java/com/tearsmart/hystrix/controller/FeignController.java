@@ -1,6 +1,6 @@
 package com.tearsmart.hystrix.controller;
 
-import com.tearsmart.hystrix.service.impl.HystrixServiceImpl;
+import com.tearsmart.hystrix.service.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,11 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeignController {
     @Autowired
-    private HystrixServiceImpl service;
+    private HystrixService service;
 
     @GetMapping("get/{time}")
     public Object getData(@PathVariable long time) throws InterruptedException {
-        Thread.sleep(time);
-        return service.getData();
+        return service.getDataWithCall(time);
     }
 }

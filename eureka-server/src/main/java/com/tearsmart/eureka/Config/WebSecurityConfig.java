@@ -1,4 +1,9 @@
-package com.tearsmart.eureka.Config;
+package com.tearsmart.eureka.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
  * <p>
@@ -16,12 +21,14 @@ package com.tearsmart.eureka.Config;
  * @author tear-smart
  * @date 2019-02-28
  */
-// @EnableWebSecurity
-public class WebSecurityConfig {
-        /*extends WebSecurityConfigurerAdapter {
+@Configuration
+@EnableWebSecurity
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().ignoringAntMatchers("/eureka/**");
+        http.csrf().disable(); //关闭csrf
+        // http.authorizeRequests().anyRequest().authenticated().and().httpBasic(); //开启认证
+        // http.csrf().ignoringAntMatchers("/eureka/**");
         super.configure(http);
-    }*/
+    }
 }

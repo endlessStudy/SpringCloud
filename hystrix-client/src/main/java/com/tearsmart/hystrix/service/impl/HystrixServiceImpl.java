@@ -1,7 +1,8 @@
 package com.tearsmart.hystrix.service.impl;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.tearsmart.hystrix.service.FeignClientService;
+import com.tearsmart.hystrix.factory.FeignFactory;
+import com.tearsmart.hystrix.service.HystrixService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,25 +22,37 @@ import org.springframework.stereotype.Service;
  * @date 2019-03-01
  */
 @Service
-public class HystrixServiceImpl {
+public class HystrixServiceImpl implements HystrixService {
     @Autowired
-    private FeignClientService service;
+    private FeignFactory factory;
 
     /**
      * 利用@HystrixCommand(fallbackMethod = "callBack")注解实现熔断
      * 需要用fallbackMethod属性指定回调方法,此时回调方法名字不需要和方法名字一样
      * @return
      */
+    @Override
     @HystrixCommand(fallbackMethod = "callBack")
-    public Object getDataWithCall() {
-        return service.getData();
+    public Object getDataWithCall(long time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return factory.getData();
     }
 
-    public Object callBack() {
+    public Object callBack(long time) {
         return "Hystrix 熔断生效!";
     }
 
-    public Object getData() {
-        return service.getData();
+    @Override
+    public Object getData(long time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return factory.getData();
     }
 }

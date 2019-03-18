@@ -5,9 +5,11 @@ spring:
     name: service-feign
 eureka:
   client:
-    serverUrl:
-      defaultZone: http://localhost:8761/eureka
-
-spring-cloud-user:
-  ribbon:
-    NFLoadBalancerRuleClassName: com.tearsmart.feign.config.RoundRobinRule
+    serviceUrl:
+      defaultZone: http://root:root@localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+#
+#spring-cloud-user:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.tearsmart.feign.config.RoundRobinRule

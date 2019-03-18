@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
  * |            \/     \/             \/      \/     \/              |
  * |                                                                 |
  * |****************************** *_* ******************************|
- * @FeignClient(value = "eureka-client-provide", path = "provide")
- *  value: 调用的服务的名称
- *  path: 路径统一前缀
- * </p>
  * @author tear-smart
+ * @FeignClient(value = "eureka-client-provide", path = "provide")
+ * value: 调用的服务的名称
+ * path: 路径统一前缀
+ * </p>
  * @date 2019-03-01
  */
-@FeignClient(value = "eureka-client-provide", path = "provide")
+@FeignClient(value = "eureka-client-provide",url = "http://localhost:8761",path = "provide")
 public interface FeignClientService {
     @GetMapping("/get")
     Object getData();

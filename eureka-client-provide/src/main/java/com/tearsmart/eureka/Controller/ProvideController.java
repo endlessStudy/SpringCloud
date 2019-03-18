@@ -1,4 +1,4 @@
-package com.tearsmart.eureka.Controller;
+package com.tearsmart.eureka.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
