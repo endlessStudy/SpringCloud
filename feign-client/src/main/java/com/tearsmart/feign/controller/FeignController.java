@@ -1,5 +1,7 @@
 package com.tearsmart.feign.controller;
 
+import com.netflix.discovery.converters.Auto;
+import com.tearsmart.feign.service.FeignAuth;
 import com.tearsmart.feign.service.FeignClientService;
 import com.tearsmart.feign.service.FeignClientService2;
 import com.tearsmart.feign.service.TestInterface;
@@ -26,7 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeignController {
     @Autowired
-    TestInterface test;
+    private TestInterface test;
+    @Autowired
+    private FeignAuth auth;
 
     @GetMapping("/get")
     public Object getData() {
@@ -36,6 +40,10 @@ public class FeignController {
     @GetMapping("/get2")
     public Object getData2() {
         return test.getData2();
+    }
+    @GetMapping("/auth/{serviceName}")
+    public Object authTest(@PathVariable String serviceName){
+        return auth.findServiceInfoFromEurekaByServiceName(serviceName);
     }
 
 }

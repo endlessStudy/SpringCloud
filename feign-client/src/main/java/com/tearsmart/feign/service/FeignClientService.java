@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * </p>
  * @date 2019-03-01
  */
-@FeignClient(value = "eureka-client-provide",url = "http://localhost:8761",path = "provide")
+@FeignClient(value = "eureka-client-provide",path = "provide")
 public interface FeignClientService {
     @GetMapping("/get")
     Object getData();
