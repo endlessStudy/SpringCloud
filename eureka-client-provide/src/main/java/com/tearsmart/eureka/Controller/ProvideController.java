@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,8 +33,9 @@ public class ProvideController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @GetMapping("get")
-    public Object getData() {
+    @GetMapping("get/{time}")
+    public Object getData(@PathVariable long time) throws InterruptedException {
+        Thread.sleep(time);
         List<String> services = discoveryClient.getServices();
         log.info("services :　" + services.toString());
         return services;

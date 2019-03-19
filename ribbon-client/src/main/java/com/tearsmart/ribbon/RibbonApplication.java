@@ -1,6 +1,6 @@
 package com.tearsmart.ribbon;
 
-import com.tearsmart.ribbon.Config.RibbonConfig;
+import com.tearsmart.ribbon.config.RibbonConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;

@@ -7,3 +7,4 @@
 test
 /feign-client/target
 target
+/common/target/

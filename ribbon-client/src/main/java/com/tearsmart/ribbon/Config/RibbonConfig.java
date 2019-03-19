@@ -1,4 +1,4 @@
-package com.tearsmart.ribbon.Config;
+package com.tearsmart.ribbon.config;
 
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
