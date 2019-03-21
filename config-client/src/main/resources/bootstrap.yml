@@ -2,9 +2,29 @@ spring:
   application:
     name: config-client # 该名字必须和git上文件名前缀一样
   cloud:
+#    bus:
+#      trace:
+#        enabled: true   # 设置节点状态跟踪，也可以通过网页 http://localhost:8300/trace 可以看到相关发送事件的数据内容
     config:
-      profile: dev
-      label: master
+#      uri: http://localhost:7770 ip+端口
+      profile: dev # 文件后置
+      label: master # git分支
       discovery:
         enabled: true
-        service-id: config-server
+        service-id: config-server # 服务id访问
+# 对称加解密
+#encrypt:
+#  key: tear-smart
+# RSA非对称加解密
+#encrypt:
+#  keyStore:
+#    location: classpath:/server-rsa.jks
+#    password: paic1234
+#    alias: mytestkey
+#    secret: aaaaa888  # 私钥密码
+# rabbitmq 配置：
+#  rabbitmq:
+#    host: localhost   # 登录 Rabbitmq 后台管理页面地址为：http://localhost:15672
+#    port: 5672
+#    username: guest   # 默认账户
+#    password: guest   # 默认密码

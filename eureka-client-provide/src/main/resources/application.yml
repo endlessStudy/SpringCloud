@@ -11,3 +11,5 @@ eureka:
     fetch-registry: true
 #  instance:
 #    instance-id: eureka-client-provide
+swagger:
+  base-package: com.tearsmart

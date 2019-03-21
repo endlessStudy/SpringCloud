@@ -5,7 +5,7 @@ spring:
     name: zuul-client
 eureka:
   client:
-    serverUrl:
+    serviceUrl:
       defaultZone: http://root:root@localhost:8761/eureka/
   instance:
     prefer-ip-address: true
@@ -15,9 +15,24 @@ info:
   author.name: tear-smart
   build.artifacted: $project.artifactId$
   build.version: '@project.modelVersion@'
+#  当有一个请求http://localhost:6660/provide-client/provide/get/1被发送到API网关上，
+#  由于/provide-client/provide/get/1能够被上述配置的path规则匹配，
+#  所以API网关会转发请求到eureka-client-provide地址。
+# 简洁配法 zuul.routes.{serviceId} = {path} eg : zuul.routes.eureka-client-provide=/user-service/**
 zuul:
   routes:
     provide-client:
       path: /provide-client/**
       serviceId: eureka-client-provide
-      stripPrefix: false
+#      strip-prefix: false
+    clien:
+      path: /client2/**
+      serviceId: eureka-client-provide2
+  ignored-services: "*" # 忽略所遇真实服务名字
+  prefix: /gateway # 网关访问前缀
+#  stripPrefix: false
+ribbon.eureka.enabled: false
+# {servername}:ribbon:listOfServers: 配置时候,只会访问配置的地址.
+eureka-client-provide:
+  ribbon:
+    listOfServers: http://localhost:2220/,http://localhost:2210/

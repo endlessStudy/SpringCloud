@@ -37,6 +37,7 @@ public class ProvideController {
     public Object getData(@PathVariable long time) throws InterruptedException {
         Thread.sleep(time);
         List<String> services = discoveryClient.getServices();
+        services.add("devtools111");
         log.info("services :　" + services.toString());
         return services;
     }

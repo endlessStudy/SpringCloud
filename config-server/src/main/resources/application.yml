@@ -1,19 +1,24 @@
 server:
   port: 7770
+## 配置中心安全设置
 spring:
+#  security:
+#    user:
+#      name: admin
+#      password: admin
   cloud:
     config:
       server:
         git:
           uri: https://github.com/endlessStudy/cloud-config.git
-          timeout: 5 # 连接超时时间
+#          username:
+#          password:
+#          timeout: 5 # 连接超时时间
           skip-ssl-validation: true #跳过ssl证书验证
   #          search-paths: cloud # 配置文件所在文件夹
   application:
     name: config-server
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
     serviceUrl:
       defaultZone: http://root:root@localhost:8761/eureka/
