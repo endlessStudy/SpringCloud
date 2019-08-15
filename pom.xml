@@ -44,6 +44,8 @@
         <module>config-client</module>
         <module>common</module>
         <module>eureka-server-8763</module>
+        <module>stream-client</module>
+        <module>zipkin-server</module>
     </modules>
     <dependencyManagement>
         <dependencies>

@@ -1,9 +1,6 @@
 package com.tearsmart.feign.controller;
 
-import com.netflix.discovery.converters.Auto;
 import com.tearsmart.feign.service.FeignAuth;
-import com.tearsmart.feign.service.FeignClientService;
-import com.tearsmart.feign.service.FeignClientService2;
 import com.tearsmart.feign.service.TestInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,9 +29,9 @@ public class FeignController {
     @Autowired
     private FeignAuth auth;
 
-    @GetMapping("/get")
-    public Object getData() {
-        return test.getData();
+    @GetMapping("/get/{time}")
+    public Object getData(@PathVariable long time) {
+        return test.getData(time);
     }
 
     @GetMapping("/get2")

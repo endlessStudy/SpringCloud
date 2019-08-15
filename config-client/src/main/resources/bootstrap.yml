@@ -2,7 +2,7 @@ spring:
   application:
     name: config-client # 该名字必须和git上文件名前缀一样
   cloud:
-#    bus:
+#    stream:
 #      trace:
 #        enabled: true   # 设置节点状态跟踪，也可以通过网页 http://localhost:8300/trace 可以看到相关发送事件的数据内容
     config:

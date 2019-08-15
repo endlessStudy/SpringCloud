@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ExcludeAnnoncation
 @Slf4j
-public class FeignConfiguration extends CommonConfig {
+public class FeignConfiguration {
     FeignConfiguration() {
         log.info("11111111111111 FeignConfiguration.class");
     }

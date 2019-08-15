@@ -25,13 +25,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FeignController {
     @Autowired
-    private HystrixService service;
+    private HystrixService hystrixService;
     @Autowired
     private HystrixcommandService hystrixcommandService;
 
     @GetMapping("get/{time}")
     public Object getData(@PathVariable long time) throws InterruptedException {
-        return service.getData(time);
+        return hystrixService.getData(time);
     }
     @GetMapping("call/{time}")
     public Object getDataWithCall(@PathVariable long time) throws InterruptedException {

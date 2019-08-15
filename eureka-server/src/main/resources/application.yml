@@ -5,10 +5,11 @@ eureka:
   instance:
     hostname: eureka-server
   client:
-#    fetch-registry: false
-#    register-with-eureka: false
-    service-url:
-      defaultZone: http://root:root@localhost:8763/eureka/
+    fetch-registry: false
+    register-with-eureka: false
+    serviceUrl:
+#      defaultZone: http://root:root@localhost:8763/eureka/
+      defaultZone: http://localhost:8761/eureka/
   healthcheck:
     enabled: true
 #  server:
@@ -19,3 +20,7 @@ spring:
     user:
       name: root
       password: root
+my:
+  name:
+    first: liu
+    two: yl

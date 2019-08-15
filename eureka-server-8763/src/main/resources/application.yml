@@ -7,7 +7,7 @@ eureka:
   client:
 #    fetch-registry: false
 #    register-with-eureka: false
-    service-url:
+    serviceUrl:
       defaultZone: http://root:root@localhost:8761/eureka/
   healthcheck:
     enabled: true

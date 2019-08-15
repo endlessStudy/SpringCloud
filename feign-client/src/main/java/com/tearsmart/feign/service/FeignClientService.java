@@ -2,6 +2,7 @@ package com.tearsmart.feign.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * <p>
@@ -23,6 +24,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  */
 @FeignClient(value = "eureka-client-provide",path = "provide")
 public interface FeignClientService {
-    @GetMapping("/get")
-    Object getData();
+    @GetMapping("/get/{time}")
+    Object getData(@PathVariable long time);
 }
